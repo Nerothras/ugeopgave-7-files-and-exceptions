@@ -1,4 +1,4 @@
-package opg3;
+package opg3b;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,23 +7,21 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         try {
-            ArrayList<String> lines = readLines("data/menu.csv"); // viker da et csv dokument er tilføjet
-            for (String line : lines) {
+            ArrayList lines = readLines("data/menu.csv");
+            for (Object line : lines) {
                 System.out.println(line);
             }
         } catch (FileNotFoundException e) {
             System.out.println("Filen blev ikke fundet");
         }
 
-
-
     }
 
-    public static ArrayList<String> readLines(String path) throws FileNotFoundException {
-        ArrayList<String> lines = new ArrayList<>();
+    public static ArrayList readLines(String path) throws FileNotFoundException {
+        ArrayList lines = new ArrayList<>();
         Scanner scan = new Scanner(new File(path));
         while (scan.hasNextLine()) {
             lines.add(scan.nextLine());
